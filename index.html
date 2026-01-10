@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Richard Wertheim — IAM Tools Portfolio</title>
-  <meta name="description" content="Practical Python tools for Identity & Access Management (IBM, SailPoint) + LLM experiments. Portfolio by Richard Wertheim."/>
+  <title>Richard Wertheim — IAM Engineer & Architect | Tools Portfolio</title>
+  <meta name="description" content="Identity & Access Management Engineer/Architect — Practical Python tools for IBM IAM, SailPoint, automation, debugging + LLM experiments."/>
   
-  <!-- Modern minimal styling -->
+  <!-- Modern minimal + animated gradient styling -->
   <style>
     :root {
-      --primary: #0066cc;
-      --dark: #1a1a1a;
-      --light: #f8f9fa;
-      --gray: #6c757d;
+      --primary: #00aaff;
+      --primary-dark: #0088cc;
+      --dark: #0f0f1a;
+      --card-bg: rgba(20, 20, 35, 0.65);
+      --text: #e0e0ff;
+      --gray: #a0a0c0;
     }
     
     * {
@@ -22,47 +24,78 @@
     }
     
     body {
-      font-family: system-ui, -apple-system, BlinkMacCode, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(to bottom, var(--light), #e9ecef);
-      color: var(--dark);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(-45deg, #1e0533, #0d1a4d, #003366, #001a33);
+      background-size: 400% 400%;
+      animation: gradientFlow 18s ease infinite;
+      color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
     
+    @keyframes gradientFlow {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
     header {
-      background: var(--dark);
+      background: rgba(15, 15, 26, 0.75);
+      backdrop-filter: blur(10px);
       color: white;
-      padding: 2.5rem 1rem;
+      padding: 3rem 1rem 2.5rem;
       text-align: center;
     }
     
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 1.5rem;
       flex: 1;
     }
     
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(90deg, #00aaff, #ff6ec7, #7b2cbf);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: textShine 5s linear infinite;
+    }
+    
+    @keyframes textShine {
+      to { background-position: 200% center; }
     }
     
     .subtitle {
-      font-size: 1.3rem;
-      opacity: 0.9;
-      margin-bottom: 2rem;
+      font-size: 1.4rem;
+      opacity: 0.85;
+      margin-bottom: 2.5rem;
     }
     
     .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      padding: 2.5rem;
-      margin: 2rem 0;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      padding: 3rem 2.5rem;
+      margin: 1.5rem 0 3rem;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    
+    h2 {
+      font-size: 2.1rem;
+      margin-bottom: 1rem;
     }
     
     .btn {
@@ -70,19 +103,19 @@
       background: var(--primary);
       color: white;
       font-weight: 600;
-      padding: 1rem 2rem;
+      padding: 1rem 2.2rem;
       border-radius: 50px;
       text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-      margin: 1rem 0.5rem;
-      box-shadow: 0 4px 15px rgba(0,102,204,0.3);
+      transition: all 0.35s ease;
+      font-size: 1.15rem;
+      margin: 1rem 0.7rem;
+      box-shadow: 0 6px 20px rgba(0,170,255,0.35);
     }
     
     .btn:hover {
-      background: #0055b3;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,102,204,0.4);
+      background: var(--primary-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,170,255,0.5);
     }
     
     .btn-outline {
@@ -97,30 +130,32 @@
     }
     
     .tech-tags {
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
+      margin: 1.8rem 0;
     }
     
     .tag {
       display: inline-block;
-      background: #e9ecef;
-      color: #495057;
-      padding: 0.4rem 0.9rem;
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      padding: 0.5rem 1rem;
       border-radius: 30px;
-      margin: 0.4rem;
+      margin: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.95rem;
     }
     
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       color: var(--gray);
       font-size: 0.95rem;
       margin-top: auto;
     }
     
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      .card { padding: 1.8rem; }
+    @media (max-width: 640px) {
+      h1 { font-size: 2.6rem; }
+      .card { padding: 2.2rem 1.5rem; }
+      .btn { padding: 0.9rem 1.8rem; font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -128,35 +163,34 @@
 
   <header>
     <h1>Tools Portfolio</h1>
-    <p class="subtitle">Identity & Access Management + LLM Experiments</p>
+    <p class="subtitle">Identity & Access Management + Emerging AI/LLM Experiments</p>
   </header>
 
   <div class="container">
-
     <div class="card">
       <h2>Hi, I'm Richard Wertheim</h2>
-      <p>
-        Identity & Access Management Architect/Engineer | IBM IAM | SailPoint | Python Tooling & Emerging LLM Integration<br>
+      <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">
+        Identity & Access Management Architect / Engineer<br>
+        IBM Security IAM • SailPoint • Python Automation • LLM Integration
       </p>
 
       <div class="tech-tags">
         <span class="tag">Python</span>
-        <span class="tag">IBM Security IAM</span>
+        <span class="tag">IBM IAM</span>
         <span class="tag">SailPoint</span>
         <span class="tag">LLM APIs</span>
-        <span class="tag">Automation</span>
-        <span class="tag">Debugging</span>
+        <span class="tag">Deployment Automation</span>
+        <span class="tag">Debugging & Reconciliation</span>
       </div>
 
-      <p style="margin: 1.5rem 0; font-size: 1.1rem;">
-        A collection of practical tools I built to solve real-world IAM challenges —<br>
-        deployment automation, data reconciliation, log analysis, and multi-LLM research experiments.
+      <p style="margin: 2rem 0; font-size: 1.15rem; opacity: 0.9;">
+        Practical, production-oriented tools built to solve real-world IAM challenges —<br>
+        safe config deployments, data comparison, log analysis, and multi-LLM research experiments.
       </p>
 
-      <a href="https://github.com/ghub-rwertheim/tools-portfolio" class="btn">View on GitHub</a>
-      <a href="https://github.com/ghub-rwertheim/tools-portfolio/blob/main/README.md" class="btn btn-outline">Read Full README →</a>
+      <a href="https://github.com/ghub-rwertheim/tools-portfolio" class="btn">Explore on GitHub</a>
+      <a href="https://github.com/ghub-rwertheim/tools-portfolio/blob/main/README.md" class="btn btn-outline">View Full README →</a>
     </div>
-
   </div>
 
   <footer>
