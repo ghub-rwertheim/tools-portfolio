@@ -1,26 +1,31 @@
 # Tools Portfolio
 
-A collection of practical **Python tools** focused on **Identity & Access Management (IAM)** workflows, automation, debugging, and data comparison — built from real-world experience primarily with the **IBM Security Identity & Access Management** stack and **SailPoint IdentityIQ**, plus newer experiments with **Large Language Model APIs**.
+Practical **Python-based IAM tools** — built for real-world **Identity & Access Management** challenges in enterprise environments.
 
-This repository serves as a living portfolio showcasing clean, useful, production-oriented code I’ve written to solve actual IAM engineering problems — and my growing interest in applying AI/LLM techniques to security & identity challenges.
+Primarily focused on the **IBM Security IAM stack** and **SailPoint IdentityIQ**, with strong experience in **cloud provisioning**, **single sign-on (SSO)** federation, automated workflows, debugging, and data reconciliation — plus emerging experiments applying **Large Language Models** to security & identity problems.
+
+This repository is my living portfolio: production-grade, clean, and useful code that solves actual engineering pain points while showcasing my evolution toward AI-assisted IAM solutions.
 
 ## Highlights
 
-| Tool / Project                                 | Purpose                                                                 | Main Technologies                     | Status      |
-|------------------------------------------------|-------------------------------------------------------------------------|---------------------------------------|-------------|
-| IAM Config Deployment Automation               | Safe, repeatable deployment of policy / config changes across envs     | Python, IBM APIs, YAML, diff/patch    | Active      |
-| IAM Data Comparison & Reconciliation           | Compare user entitlements, roles, accounts between systems or snapshots| Python, Pandas, deepdiff, JSON/CSV    | Mature      |
-| IAM Debug & Log Analysis Assistant             | Parse logs, simulate queries, find permission paths quickly            | Python, regex, IBM logging patterns   | Active      |
-| Multi-LLM Debate & Cross-Verification Research | Two (or more) LLMs debate a topic and fact-check each other            | Python, OpenAI API / other LLM APIs   | Experimental|
+| Tool / Project                               | Purpose                                                                 | Main Technologies                          | Status      |
+|----------------------------------------------|-------------------------------------------------------------------------|--------------------------------------------|-------------|
+| IAM Config Deployment Automation             | Safe, repeatable, versioned deployment of policies/configs across envs | Python, IBM APIs, YAML, diff/patch, dry-run| Active      |
+| Cloud Provisioning & Lifecycle Automation    | Automated joiner/mover/leaver, SCIM, account provisioning/deprovisioning | Python, SailPoint APIs, IBM Verify, REST   | Active      |
+| Entitlement Comparison & Reconciliation      | Diff user roles, accounts, entitlements between systems or snapshots   | Python, Pandas, deepdiff, JSON/CSV         | Mature      |
+| SSO Integration & Troubleshooting            | Federation setup, SAML/OIDC flow testing, SSO debug & validation       | Python, regex, SAML libraries, logging     | Active      |
+| IAM Debug & Log Analysis Assistant           | Fast log parsing, query simulation, permission path tracing            | Python, regex, IBM logging patterns        | Active      |
+| Multi-LLM Debate & Verification Research     | Multiple LLMs debate topics, cross-check facts, potential for policy QA| Python, OpenAI / other LLM APIs            | Experimental|
 
 ## Why These Tools?
 
-Most were born from repetitive, error-prone, or time-consuming tasks I encountered while working as an IAM engineer/developer:
+They come directly from the repetitive, high-stakes, or tedious tasks I've tackled as an **IAM Architect and Engineer**:
 
-- Manually comparing thousands of entitlements between prod and dev? → Automated diff with smart reporting
-- Rolling out policy changes across environments? → Versioned configs + dry-run + rollback safety
-- Chasing obscure access issues in logs? → Structured parsing + quick lookup
-- Curious whether LLMs could help validate complex IAM policy decisions? → Early experiments with debate/verification loops
+- Manually reconciling thousands of entitlements across prod/dev/cloud? → Smart, automated diff + reconciliation reports  
+- Safely rolling out policy changes across dozens of environments? → Versioned configs, dry-run, rollback safety  
+- Onboarding/offboarding users in hybrid cloud setups? → Automated provisioning/deprovisioning with audit trails  
+- Debugging SSO failures or obscure access denials? → Structured log analysis + quick lookup tools  
+- Wondering if LLMs could reason about complex IAM policies? → Early multi-model debate & verification experiments
 
 ## Getting Started
 
@@ -28,8 +33,9 @@ Most were born from repetitive, error-prone, or time-consuming tasks I encounter
 git clone https://github.com/ghub-rwertheim/tools-portfolio.git
 cd tools-portfolio
 
-# Most tools use a virtual environment + recent Python (3.9+)
+# Use the shared virtual environment (Python 3.9+ recommended)
 python -m venv .venv
-source .venv/bin/activate    # or .venv\Scripts\activate on Windows
+source .venv/bin/activate          # Linux/macOS
+# or .venv\Scripts\activate        # Windows
 
 pip install -r requirements.txt
