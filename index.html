@@ -1,11 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio Welcome</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    <p>Welcome to my public repository!</p>
-</body>
-</html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Richard Wertheim — IAM Tools Portfolio</title>
+  <meta name="description" content="Practical Python tools for Identity & Access Management (IBM, SailPoint) + LLM experiments. Portfolio by Richard Wertheim."/>
+  
+  <!-- Modern minimal styling -->
+  <style>
+    :root {
+      --primary: #0066cc;
+      --dark: #1a1a1a;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacCode, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(to bottom, var(--light), #e9ecef);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      padding: 2.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      margin: 1rem 0.5rem;
+      box-shadow: 0 4px 15px rgba(0,102,204,0.3);
+    }
+    
+    .btn:hover {
+      background: #0055b3;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,102,204,0.4);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .tech-tags {
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    
+    .tag {
+      display: inline-block;
+      background: #e9ecef;
+      color: #495057;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      margin: 0.4rem;
+    }
+    
+    footer {
+      text-align:
